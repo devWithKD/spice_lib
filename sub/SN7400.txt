@@ -1,0 +1,39 @@
+.SUBCKT SN7400 in1 in2 vcc vss out
+* 2-INPUT-NAND SN7400
+*
+Q1 4 6 in1 0 N1
+Q2 4 6 in2 0 N1
+Q4 3 4 5 0 N1
+Q5 out 5 vss 0 N1
+Q6 2 3 1 0 N1
+D1 1 out DD
+RC4 vcc 3 1.6k
+RC6 vcc 2 130
+RB1 vcc 6 4k
+RE4 5 vss 1k
+D2 vss in2 DD
+D3 vss in1 DD
+.MODEL N1 NPN BF=50 RB=70 RC=40 CJS=2p TF=0.1n
++TR=10n CJE=1p CJC=1.5p VJC=0.85 VAF=50
+.MODEL DD D RS=40 TT=0.1n CJ0=0.9p
+.ENDS
+
+.SUBCKT SN7404  in1  vcc vss out
+* 2-INPUT-NAND SN7400
+*
+Q1 4 6 in1 0 N1
+*Q2 4 6 in2 0 N1
+Q4 3 4 5 0 N1
+Q5 out 5 vss 0 N1
+Q6 2 3 1 0 N1
+D1 1 out DD
+RC4 vcc 3 1.6k
+RC6 vcc 2 130
+RB1 vcc 6 4k
+RE4 5 vss 1k
+*D2 vss in2 DD
+D3 vss in1 DD
+.MODEL N1 NPN BF=50 RB=70 RC=40 CJS=2p TF=0.1n
++TR=10n CJE=1p CJC=1.5p VJC=0.85 VAF=50
+.MODEL DD D RS=40 TT=0.1n CJ0=0.9p
+.ENDS
